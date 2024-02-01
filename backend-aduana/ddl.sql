@@ -1,7 +1,7 @@
 
 CREATE TABLE paises(
 	idPais INT PRIMARY KEY AUTO_INCREMENT,
-	Pais VARCHAR(100)
+	Pais VARCHAR(100) 
 );
 
 CREATE TABLE aduaneros(
