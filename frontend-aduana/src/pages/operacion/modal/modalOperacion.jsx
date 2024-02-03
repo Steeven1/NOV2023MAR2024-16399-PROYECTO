@@ -35,8 +35,8 @@ const StyledTextField = styled(TextField)(({ }) => ({
 const ModalOperacion = ({ opened, fnBreaker, type, data, render, updateTable }) => {
 
   const [agentesAduana, setAgentesAduana] = useState([]);
-
-  
+  const [traslados, setTraslados] = useState([]);
+  const [productos, setProductos] = useState([]);
 
 
   useEffect(() => {
@@ -44,21 +44,21 @@ const ModalOperacion = ({ opened, fnBreaker, type, data, render, updateTable }) 
     const getAgentesAduana = async () => {
       const data = await api_agente_aduana.getAll();
       let dataParsed = data.map(curr => ({
-        idAgente: curr.idAgente
+        idAgente: curr.nitAgenteAduana
       }))
       setAgentesAduana(dataParsed);
     };
 
     getAgentesAduana();
   }, [])
-
-  const [traslados, setTraslados] = useState([]);
+  console.log(agentesAduana);
+  
   useEffect(() => {
 
     const getTraslados = async () => {
       const data = await api_traslado.getAll();
       let dataParsed = data.map(curr => ({
-        idTraslado: curr.idTraslado
+        idTraslado: curr.codigoTraslado
       }))
       setTraslados(dataParsed);
     };
@@ -66,13 +66,13 @@ const ModalOperacion = ({ opened, fnBreaker, type, data, render, updateTable }) 
     getTraslados();
   }, [])
 
-  const [productos, setProductos] = useState([]);
+  
   useEffect(() => {
 
     const getProductos = async () => {
       const data = await api_producto.getAll();
       let dataParsed = data.map(curr => ({
-        idPartida: curr.idPartida
+        idPartida: curr.partidaId
       }))
       setProductos(dataParsed);
     };
@@ -209,7 +209,7 @@ const ModalOperacion = ({ opened, fnBreaker, type, data, render, updateTable }) 
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <StyledTextField select
+            <StyledTextField select 
               label='Nit de agente de aduana' type='text'
               defaultValue=""
               /* SelectProps={{
