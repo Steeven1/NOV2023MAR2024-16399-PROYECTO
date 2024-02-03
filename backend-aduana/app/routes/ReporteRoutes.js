@@ -4,7 +4,7 @@ const router = express.Router();
 
 //Rutas para el CRUD
 //optener Todos
-router.get('/', ReporteController.obtenerTodos);
+router.get('/', ReporteController.obtenerTodos );
 //crear nuevo
 router.post('/', ReporteController.crear);
 //obtener por ID
