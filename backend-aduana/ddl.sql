@@ -96,6 +96,7 @@ CREATE TABLE reportes(
 	CONSTRAINT fk_reportes_codigoOperacion_operaciones
 	FOREIGN KEY(codigoOperacion) REFERENCES operaciones
 	(codigoOperacion)
+	
 );
 
 
