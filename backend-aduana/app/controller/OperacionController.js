@@ -1,5 +1,5 @@
 const madb  = require("../repositories/controller.repository");
-const mongo = madb.getDBMS({dbms : "mongodb"});
+const mongo = madb.getDBMS({dbms : "mongodb" });
 
 /*
 obtener datos del operaciones
